@@ -1,0 +1,16 @@
+.contentMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 50%;
+  margin: 40px;
+  background-color: lightgray;
+}
+
+.contentMain___buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
