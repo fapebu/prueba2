@@ -4,7 +4,7 @@ import { editPerson } from '../../services/serviceput'
 //Componente que recibe los datos del formulario de edicion
 
 
-export default function PutPerson() {
+export default function PutPerson(nombreForm = '', apellidoForm = '', aliasForm = '') {
     const [ nombre, setNombre ] = useState('');
     const [ apellido, setApellido ] = useState('');
     const [ alias, setAlias ] = useState('');

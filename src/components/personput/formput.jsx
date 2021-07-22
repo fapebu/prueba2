@@ -8,6 +8,8 @@ export default function FormEdit() {
     const [ apellido, setApellido ] = useState([])
     const [ alias, setAlias ] = useState([])
 
+
+
     return (
         <>
             <label htmlFor="">Nombre</label>
