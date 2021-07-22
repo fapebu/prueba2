@@ -3,7 +3,7 @@ import PutPerson from './editperson'
 
 //Formulario para tomar los datos de edicion de aca mandar a put de axios
 
-export default function FormEdit() {
+export default function FormEdit(iitemId) {
     const valoreIniciales = {
         nombre: '',
         apellido: '',
