@@ -1,36 +1,54 @@
 import { useState } from 'react'
-import putpersons from './editperson'
+import PutPerson from './editperson'
 
 //Formulario para tomar los datos de edicion
 
+const valoreIniciales = {
+    nombre: '',
+    apellido: '',
+    alias: ''
+}
 export default function FormEdit() {
-    const [ nombre, setNombre ] = useState([])
-    const [ apellido, setApellido ] = useState([])
-    const [ alias, setAlias ] = useState([])
 
+    const [ data, setData ] = useState(valoreIniciales)
 
+    const handleInput = (e) => {
+        const { name, value } = e.target
+
+        setData({
+            ...data, [ name ]: value,
+        })
+    }
+
+    console.log(data)
 
     return (
         <>
-            <label htmlFor="">Nombre</label>
-            <input type="text"
-                onChange={ e => setNombre(e.target.value) }
-            />
-            <label htmlFor="">Apellido</label>
-
-            <input type="text"
-                onChange={ e => setApellido(e.target.value) }
-            />
-            <label htmlFor="">Alias</label>
-
-            <input type="text"
-                onChange={ e => setAlias(e.target.value) }
-            />
+            <label htmlFor="">Nombre
+                <input type="text"
+                    value={ data.nombre }
+                    onChange={ handleInput }
+                    name='nombre'
+                />
+            </label>
+            <label htmlFor="">Apellido
+                <input type="text"
+                    value={ data.apellido }
+                    onChange={ handleInput }
+                    name='apellido'
+                />
+            </label>
+            <label htmlFor="">Alias
+                <input type="text"
+                    value={ data.alias }
+                    onChange={ handleInput }
+                    name='alias'
+                />
+            </label>
 
             <div>
-                { nombre }
-                { apellido }
-                { alias }
+                <PutPerson onClick={ data } />
+
             </div>
         </>
     )

@@ -4,26 +4,16 @@ import { editPerson } from '../../services/serviceput'
 //Componente que recibe los datos del formulario de edicion
 
 
-export default function PutPerson(nombreForm = '', apellidoForm = '', aliasForm = '') {
-    const [ nombre, setNombre ] = useState('');
-    const [ apellido, setApellido ] = useState('');
-    const [ alias, setAlias ] = useState('');
+export default function PutPerson({ nombreForm, apellidoForm, aliasForm }) {
+
+
     const [ data, setData ] = useState('');
 
     useEffect(() => { handlePut() }, [])
 
-
-    const editData = {
-        nombre: nombre,
-        apellido: apellido,
-        alias: alias
-    }
     const handlePut = async () => {
-        const result = await editPerson(editData)
+        const result = await editPerson()
         setData(result)
-        setNombre('')
-        setApellido('')
-        setAlias('')
 
     }
 
