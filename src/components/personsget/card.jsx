@@ -2,6 +2,7 @@ import Delete from '../persondelete/delete'
 import './stylecard.css'
 
 
+
 export default function Card({ nombre = '', apellido = '', alias = '', email = '', id = '' }) {
 
     return (
@@ -25,7 +26,8 @@ export default function Card({ nombre = '', apellido = '', alias = '', email = '
                     <Delete itemId={ id } />
                 </div>
                 <div className="contentMain___buttons___edit">
-                    <button>Edit</button>
+                    {/* rutear al form de edit */ }
+                    <button type="submit">Editar</button>
                 </div>
             </div>
         </div>

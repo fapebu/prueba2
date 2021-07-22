@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import PutPerson from './editperson'
 
-//Formulario para tomar los datos de edicion
+//Formulario para tomar los datos de edicion de aca mandar a put de axios
 
-const valoreIniciales = {
-    nombre: '',
-    apellido: '',
-    alias: ''
-}
 export default function FormEdit() {
+    const valoreIniciales = {
+        nombre: '',
+        apellido: '',
+        alias: ''
+    }
 
     const [ data, setData ] = useState(valoreIniciales)
 
@@ -19,9 +19,7 @@ export default function FormEdit() {
             ...data, [ name ]: value,
         })
     }
-
     console.log(data)
-
     return (
         <>
             <label htmlFor="">Nombre
@@ -47,7 +45,8 @@ export default function FormEdit() {
             </label>
 
             <div>
-                <PutPerson onClick={ data } />
+                { data.nombre + data.apellido + data.alias }
+                <PutPerson { ...data } />
 
             </div>
         </>
