@@ -1,9 +1,8 @@
-import { Button } from 'react-bootstrap'
 import Delete from '../persondelete/delete'
 import './stylecard.css'
 
 
-export default function Card({ nombre = '', apellido = '', alias = '', email = '' ,id = ''}) {
+export default function Card({ nombre = '', apellido = '', alias = '', email = '', id = '' }) {
 
     return (
         <div className="contentMain">
@@ -23,12 +22,10 @@ export default function Card({ nombre = '', apellido = '', alias = '', email = '
             </div>
             <div className="contentMain___buttons">
                 <div className="contentMain___buttons___delete">
-                    <Delete itemId={id} />
+                    <Delete itemId={ id } />
                 </div>
                 <div className="contentMain___buttons___edit">
-                    <Button>
-                        Editar
-                    </Button>
+                    <button>Edit</button>
                 </div>
             </div>
         </div>

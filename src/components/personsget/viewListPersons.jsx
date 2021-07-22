@@ -8,9 +8,7 @@ export default function Viewallpersons() {
     const [ list, setList ] = useState([])
 
 
-    useEffect(() => {
-        myFecth()
-    }, [])
+    useEffect(() => { myFecth() }, [])
 
     const myFecth = async () => {
         const result = await getListPersona()
