@@ -1,33 +1,29 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { editPerson } from '../../services/serviceput'
 
-//Formulario para tomar los datos de edicion de aca mandar a put de axios
 
 export default function FormEdit() {
     const valoreIniciales = {
         nombre: '',
-        apellido: '',
-        alias: ''
+
     }
 
     const [ data, setData ] = useState(valoreIniciales)
-
     const handleInput = (e) => {
         const { name, value } = e.target
 
         setData({
             ...data, [ name ]: value,
         })
-    }
-    useEffect(() => { myFecth() }, [])
-
-    const myFecth = async (nombreEdit, apellidoEdit, aliasEdit) => {
-        const result = await editPerson(nombreEdit, apellidoEdit, aliasEdit)
-        setData(result)
+        myFecth([ data ])
     }
 
+    const myFecth = async (nombreEdit) => {
+        const result = await editPerson(nombreEdit)
+        console.log(result)
+    }
 
-    console.log(data)
+
     return (
         <>
             <label htmlFor="">Nombre
@@ -37,7 +33,7 @@ export default function FormEdit() {
                     name='nombre'
                 />
             </label>
-            <label htmlFor="">Apellido
+            {/* <label htmlFor="">Apellido
                 <input type="text"
                     value={ data.apellido }
                     onChange={ handleInput }
@@ -50,10 +46,10 @@ export default function FormEdit() {
                     onChange={ handleInput }
                     name='alias'
                 />
-            </label>
+            </label> */}
 
             <div>
-                <button onClick={ () => myFecth({ ...data }) } > uardar </button>
+                <button onClick={ () => myFecth({ ...data }) } > Guardar </button>
             </div>
         </>
     )

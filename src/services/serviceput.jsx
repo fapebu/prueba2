@@ -1,23 +1,29 @@
 import axios from "axios"
 
-export const editPerson = async (nombre, apellido, alias) => {
+export const editPerson = async (nombre) => {
+
+    if (nombre !== undefined) {
 
 
-    try {
-        console.log(nombre, apellido, alias)
-        const url = `http://localhost:5000/persona/38`
+        try {
+            console.log(nombre)
+            const url = `http://localhost:5000/persona/38`
 
-        console.log(url)
 
-        const resultPersona = await axios.put(url, { nombre, apellido, alias })
-        if (resultPersona.status === 200) {
+            const resultPersona = await axios.put(url, nombre)
+            if (resultPersona.status === 200) {
 
-            console.log('status ok')
+                console.log('status ok')
+                return (resultPersona.data.persona);
+            }
+            console.log(url)
+
         }
-        return (resultPersona.data.persona);
-
+        catch (e) {
+            console.log(e)
+        }
     }
-    catch (e) {
-        console.log(e)
+    else {
+        console.log('error')
     }
 }
