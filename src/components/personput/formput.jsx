@@ -7,19 +7,19 @@ export default function FormEdit() {
         nombre: '',
 
     }
-
     const [ data, setData ] = useState(valoreIniciales)
+
     const handleInput = (e) => {
         const { name, value } = e.target
 
         setData({
             ...data, [ name ]: value,
         })
-        myFecth([ data ])
+        myFecth()
     }
 
-    const myFecth = async (nombreEdit) => {
-        const result = await editPerson(nombreEdit)
+    const myFecth = async (dataFetch) => {
+        const result = await editPerson(dataFetch)
         console.log(result)
     }
 
@@ -49,7 +49,7 @@ export default function FormEdit() {
             </label> */}
 
             <div>
-                <button onClick={ () => myFecth({ ...data }) } > Guardar </button>
+                <button onClick={ () => myFecth() } > Guardar </button>
             </div>
         </>
     )
