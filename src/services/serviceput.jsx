@@ -1,12 +1,11 @@
 import axios from "axios"
 
-export const editPerson = async (nombre) => {
-
-    if (nombre !== undefined) {
+export const editPerson = async (nombre, apellido, alias) => {
+    console.log(nombre, apellido, alias)
+    if (nombre && apellido && alias !== undefined) {
 
 
         try {
-            console.log(nombre)
             const url = `http://localhost:5000/persona/38`
 
 

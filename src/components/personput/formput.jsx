@@ -5,6 +5,8 @@ import { editPerson } from '../../services/serviceput'
 export default function FormEdit() {
     const valoreIniciales = {
         nombre: '',
+        apellido: '',
+        alias: ''
 
     }
     const [ data, setData ] = useState(valoreIniciales)
@@ -15,12 +17,15 @@ export default function FormEdit() {
         setData({
             ...data, [ name ]: value,
         })
-        myFecth()
     }
 
-    const myFecth = async (dataFetch) => {
-        const result = await editPerson(dataFetch)
+    const myFecth = async () => {
+        const result = await editPerson(data)
         console.log(result)
+    }
+
+    if (data.length === 3) {
+        myFecth([ data ])
     }
 
 
@@ -33,7 +38,7 @@ export default function FormEdit() {
                     name='nombre'
                 />
             </label>
-            {/* <label htmlFor="">Apellido
+            <label htmlFor="">Apellido
                 <input type="text"
                     value={ data.apellido }
                     onChange={ handleInput }
@@ -46,7 +51,7 @@ export default function FormEdit() {
                     onChange={ handleInput }
                     name='alias'
                 />
-            </label> */}
+            </label>
 
             <div>
                 <button onClick={ () => myFecth() } > Guardar </button>
