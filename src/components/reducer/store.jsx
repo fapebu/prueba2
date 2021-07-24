@@ -7,9 +7,9 @@ const stateInit = {
 
 const reducer = (state = stateInit, action) => {
     switch (action.type) {
-        case 'getData':
+        case 'GETDATA':
             const nuevoEstado = state
-            nuevoEstado({ ...action.elemento })
+            nuevoEstado({ ...action.addInfo })
             return nuevoEstado
         default:
             return state

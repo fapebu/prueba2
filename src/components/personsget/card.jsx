@@ -3,7 +3,6 @@ import './stylecard.css'
 import BtnEdit from '../personput/btnEdit'
 
 export default function Card({ nombre = '', apellido = '', alias = '', email = '', id = '' }) {
-
     return (
         <div className="contentMain">
             <div className="contentMain___name">
