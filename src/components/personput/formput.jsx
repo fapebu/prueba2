@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { editPerson } from '../../services/serviceput'
+import './personputstyle.css'
 
-export default function FormEdit() {
+
+export default function FormEdit(nombreEdit = "", apellidoEdit = "", aliasEdit = "", emailEdit = "") {
+
 
 
     const [ nombre, setNombre ] = useState("luisca")
@@ -12,7 +15,6 @@ export default function FormEdit() {
     const handleChangeName = (e) => {
         setNombre(e.target.value)
     }
-
 
     const handleChangeApellido = (e) => {
         setApellido(e.target.value + " ")
@@ -26,53 +28,59 @@ export default function FormEdit() {
         setEmail(e.target.value)
     }
 
-    // const handleInput = (e) => {
-    //     const { name, value } = e.target
-
-    //     setData({
-    //         ...data, [ name ]: value,
-    //     })
-    //     console.log(e.target.value)
-    // }
-
     const myFecth = async () => {
         const result = await editPerson(nombre, apellido, alias, email)
         console.log("el result del formput" + result)
     }
 
-    // myFecth([ data ])
 
 
 
     return (
         <>
-            <label htmlFor="">Nombre
-                <input type="text"
-                    value={ nombre } onChange={ (e) => handleChangeName(e) }
-                    name='nombre'
-                />
-            </label>
-            <label htmlFor="">Apellido
-                <input type="text"
-                    value={ apellido } onChange={ (e) => handleChangeApellido(e) }
-                    name='apellido'
-                />
-            </label>
-            <label htmlFor="">Alias
-                <input type="text"
-                    value={ alias } onChange={ (e) => handleChangeAlias(e) }
-                    name='alias'
-                />
-            </label>
-            <label htmlFor="">Email
-                <input type="text"
-                    value={ email } onChange={ (e) => handleChangeEmail(e) }
-                    name='email'
-                />
-            </label>
+            <div className="contentMainForm">
+                <div className="contentMainForm___child">
+                    <div className="contentMainForm___child___nombre">
+                        <label htmlFor="">Nombre
+                            <input type="text"
+                                value={ nombre } onChange={ (e) => handleChangeName(e) }
+                                name='nombre'
+                            />
+                        </label>
+                    </div>
 
-            <div>
-                <button onClick={ myFecth } > Guardar </button>
+                    <div className="contentMainForm___child___apellido">
+                        <label htmlFor="">Apellido
+                            <input type="text"
+                                value={ apellido } onChange={ (e) => handleChangeApellido(e) }
+                                name='apellido'
+                            />
+                        </label>
+                    </div>
+
+                    <div className="contentMainForm___child___alias">
+
+                        <label htmlFor="">Alias
+                            <input type="text"
+                                value={ alias } onChange={ (e) => handleChangeAlias(e) }
+                                name='alias'
+                            />
+                        </label>
+                    </div>
+
+                    <div className="contentMainForm___child___alias">
+                        <label htmlFor="">Email
+                            <input type="text"
+                                value={ email } onChange={ (e) => handleChangeEmail(e) }
+                                name='email'
+                            />
+                        </label>
+                    </div>
+
+                    <div className="contentMainForm___child___button">
+                        <button onClick={ myFecth } > Guardar </button>
+                    </div>
+                </div>
             </div>
         </>
     )

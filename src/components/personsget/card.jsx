@@ -1,7 +1,6 @@
 import Delete from '../persondelete/delete'
 import './stylecard.css'
-
-
+import BtnEdit from '../personput/btnEdit'
 
 export default function Card({ nombre = '', apellido = '', alias = '', email = '', id = '' }) {
 
@@ -27,8 +26,7 @@ export default function Card({ nombre = '', apellido = '', alias = '', email = '
                 </div>
                 <div className="contentMain___buttons___edit">
                     {/* rutear al form de edit */ }
-                    <button type="submit">Editar</button>
-                </div>
+                    <BtnEdit nombre={ nombre } apellido={ apellido } alias={ alias } email={ email } /> </div>
             </div>
         </div>
     )
