@@ -24,8 +24,7 @@ export default function Card({ nombre = '', apellido = '', alias = '', email = '
                     <Delete itemId={ id } />
                 </div>
                 <div className="contentMain___buttons___edit">
-                    {/* rutear al form de edit */ }
-                    <BtnEdit nombre={ nombre } apellido={ apellido } alias={ alias } email={ email } /> </div>
+                    <BtnEdit nombre={ nombre } apellido={ apellido } alias={ alias } email={ email } id={ id } /> </div>
             </div>
         </div>
     )

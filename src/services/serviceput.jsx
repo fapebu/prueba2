@@ -1,14 +1,14 @@
 import axios from "axios"
 
-export const editPerson = async (nombre, apellido, alias, email) => {
+export const editPerson = async (nombre, apellido, alias, email, id) => {
     console.log(nombre, apellido, alias, email)
 
 
 
     try {
 
-        const url = `http://localhost:5000/persona/38`
-        console.log(nombre, apellido, alias, email)
+        const url = `http://localhost:5000/persona/${ id }`
+        console.log(nombre, apellido, alias, email, id)
 
 
         const resultPersona = await axios.put(url, { nombre, apellido, alias, email })
