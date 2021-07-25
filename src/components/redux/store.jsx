@@ -1,15 +1,13 @@
-// import { VIEW_USERS } from "../redux/action";
+function reducer(state = { data: "" }, action) {
+    switch (action.type) {
+        case "FETCH_DATA":
+            return {
+                ...state,
+                data: action.data
+            };
+        default:
+            return state;
+    }
+}
 
-// const initialState = {
-//     list: []
-// }
-
-// export function viewPersons(state = initialState, action) {
-
-//     switch (action.type) {
-//         case VIEW_USERS:
-//             return Object.assign({}, state, { list: action.payload })
-//         default:
-//             return state
-//     }
-// }
+export default reducer;

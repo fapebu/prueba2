@@ -1,9 +1,12 @@
 import { getListPersona } from '../../services/serviceget'
+import { useEffect } from 'react'
 
 export const viewPersons = () => {
-    return (dispatch) => {
-        return getListPersona().then((response) => {
-            dispatch(viewPersonsAxios(response.data))
+    return async dispatch => {
+        const res = await getListPersona()
+        const action = dispatch({
+            type: "VIEW_PEOPLE",
+            data: res.data
         })
     }
 }

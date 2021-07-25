@@ -1,5 +1,5 @@
 let stateInit = {
-    person: 'pepe'
+    persona: 'juan'
 }
 
 
@@ -7,7 +7,7 @@ const mainReducer = (state = stateInit, action) => {
     if (action.type === "VIEW_PEOPLE") {
         return {
             ...state,
-            person: action.person
+            persona: action.persona
 
         }
     } else {
