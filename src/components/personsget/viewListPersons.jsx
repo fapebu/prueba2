@@ -5,20 +5,8 @@ import { librosPersona } from '../../services/servicegetlibro'
 
 
 export default function Viewallpersons() {
-    const [ list, setList ] = useState({
-        nombre: '',
-        apellido: '',
-        alias: '',
-        id: '',
-        nombre_libro: '',
-        persona_id: ''
-    })
-    const [ libro, setLibro ] = useState({
-        nombre: '',
-        persona_id: ''
-    })
-
-    //traer en un objeto los datos y unirlos
+    const [ list, setList ] = useState([])
+    const [ libro, setLibro ] = useState([])
 
     useEffect(() => { myFecth() }, [])
 
@@ -31,19 +19,17 @@ export default function Viewallpersons() {
 
     const myFecthLibro = async () => {
         const result = await librosPersona()
-        setList(result)
+        setLibro(result)
     }
 
-    console.log(list[ result ])
 
+    const idPersona = list.map(item => {
+        return (item.id)
+    })
 
-    // const idPersona = list.map(item => {
-    //     return (item.id)
-    // })
+    const filterInfo = libro.filter(personaLibro => idPersona.includes(personaLibro.persona_id))
 
-    // const filterInfo = libro.filter(personaLibro => idPersona.includes(personaLibro.persona_id))
-
-    // const nombreLibro = filterInfo.map(nombreLibro => nombreLibro.nombre)
+    console.log(filterInfo)
 
 
     return (list.map(item => <Card key={ item.id } { ...item } />))
