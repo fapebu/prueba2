@@ -1,0 +1,1 @@
+export const VIEW_ALL_PEOPLE = "VIEW_ALL_PEOPLE"

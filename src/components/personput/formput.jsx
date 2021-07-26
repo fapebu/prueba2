@@ -17,7 +17,7 @@ export default function FormEdit(nombreEdit = "", apellidoEdit = "", aliasEdit =
     }
 
     const handleChangeApellido = (e) => {
-        setApellido(e.target.value + " ")
+        setApellido(e.target.value)
     }
 
     const handleChangeAlias = (e) => {
