@@ -3,37 +3,44 @@ import { editPerson } from '../../services/serviceput'
 import './personputstyle.css'
 
 
-export default function FormEdit(nombreEdit = "", apellidoEdit = "", aliasEdit = "", emailEdit = "") {
+export default function FormEdit() {
 
+    const [ data, setData ] = useState({
+        nombre: 'topo',
+        apellido: 'tito',
+        alias: 'jorfito',
+        email: 'fer_nada@gmail.com'
+    })
 
-
-    const [ nombre, setNombre ] = useState("luisca")
-    const [ apellido, setApellido ] = useState("pepe")
-    const [ alias, setAlias ] = useState("dros")
-    const [ email, setEmail ] = useState("fer_nada@gmail.com")
-
-    const handleChangeName = (e) => {
-        setNombre(e.target.value)
-    }
-
-    const handleChangeApellido = (e) => {
-        setApellido(e.target.value + " ")
-    }
-
-    const handleChangeAlias = (e) => {
-        setAlias(e.target.value)
-    }
-
-    const handleChangeEmail = (e) => {
-        setEmail(e.target.value)
-    }
-
-    const myFecth = async () => {
-        const result = await editPerson(nombre, apellido, alias, email)
+    const myFecth = async ([ ...a ]) => {
+        const result = await editPerson([ ...a ])
         console.log("el result del formput" + result)
     }
 
 
+    const handleChangeName = (e) => {
+        const { nombre, value } = e.target
+        setData(prevState => ({ prevState, [ nombre ]: value }))
+    }
+
+    const handleChangeApellido = (e) => {
+        const { apellido, value } = e.target
+        setData(prevState => ({ prevState, [ apellido ]: value }))
+    }
+
+    const handleChangeAlias = (e) => {
+        const { alias, value } = e.target
+        setData(prevState => ({ ...prevState, [ alias ]: value }))
+    }
+
+    const handleChangeEmail = (e) => {
+        const { email, value } = e.target
+        setData(prevState => ({ ...prevState, [ email ]: value }))
+    }
+
+
+
+    console.log(data)
 
 
     return (
@@ -42,8 +49,9 @@ export default function FormEdit(nombreEdit = "", apellidoEdit = "", aliasEdit =
                 <div className="contentMainForm___child">
                     <div className="contentMainForm___child___nombre">
                         <label htmlFor="">Nombre
-                            <input type="text"
-                                value={ nombre } onChange={ (e) => handleChangeName(e) }
+                            <input
+                                value={ data.nombre } onChange={ (e) => handleChangeName(e) }
+                                type="text"
                                 name='nombre'
                             />
                         </label>
@@ -52,7 +60,8 @@ export default function FormEdit(nombreEdit = "", apellidoEdit = "", aliasEdit =
                     <div className="contentMainForm___child___apellido">
                         <label htmlFor="">Apellido
                             <input type="text"
-                                value={ apellido } onChange={ (e) => handleChangeApellido(e) }
+                                value={ data.apellido }
+                                onChange={ (e) => handleChangeApellido(e) }
                                 name='apellido'
                             />
                         </label>
@@ -62,7 +71,8 @@ export default function FormEdit(nombreEdit = "", apellidoEdit = "", aliasEdit =
 
                         <label htmlFor="">Alias
                             <input type="text"
-                                value={ alias } onChange={ (e) => handleChangeAlias(e) }
+                                value={ data.alias }
+                                onChange={ (e) => handleChangeAlias(e) }
                                 name='alias'
                             />
                         </label>
@@ -71,14 +81,15 @@ export default function FormEdit(nombreEdit = "", apellidoEdit = "", aliasEdit =
                     <div className="contentMainForm___child___alias">
                         <label htmlFor="">Email
                             <input type="text"
-                                value={ email } onChange={ (e) => handleChangeEmail(e) }
+                                value={ data.email }
+                                onChange={ (e) => handleChangeEmail(e) }
                                 name='email'
                             />
                         </label>
                     </div>
 
                     <div className="contentMainForm___child___button">
-                        <button onClick={ myFecth } > Guardar </button>
+                        <button onClick={ () => myFecth([ data ]) } > Guardar </button>
                     </div>
                 </div>
             </div>

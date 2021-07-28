@@ -14,7 +14,10 @@ export const getListPersona = async () => {
 
         return resultPersona.data.respuesta
     }
-    catch (e) { console.log(e) }
+    catch (e) {
+        console.log(e)
+        return [ e.resultPersona.data ]
+    }
 }
 
 export const getListPersonaId = async (id = 0) => {

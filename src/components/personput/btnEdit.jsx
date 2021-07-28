@@ -1,11 +1,15 @@
 
-export default function BtnEdit(nombre, apellido, alias, email) {
+export default function BtnEdit(nombre, apellido, alias, email, id) {
+
 
 
     const handleChangedata = () => {
         //llamara a otra funcion
-        return (console.log(nombre, apellido, alias, email))
+        return (nombre, apellido, alias, email, id)
     }
+    const novaFun = handleChangedata()
+
+    console.log(novaFun)
 
     return (
         <button type="submit"

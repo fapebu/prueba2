@@ -1,14 +1,16 @@
 import ListPersonCard from '../components/personsget/componentListPerson'
-import FormInput from '../components/personpost/formpost'
 import FormEdit from '../components/personput/formput'
+import UserContainer from '../components/redux/users_content/UserContainer'
+
+
 
 export default function MainPersonComponent() {
 
     return (
         <>
-            <FormInput />
-            <ListPersonCard />
+            <UserContainer />
             <FormEdit />
+            <ListPersonCard />
         </>
     )
 }
