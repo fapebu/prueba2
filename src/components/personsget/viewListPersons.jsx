@@ -7,13 +7,16 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function Viewallpersons() {
 
     const personaView = useSelector((state) => state.listadopersona)
+
     const dispatch = useDispatch();
+
     const myFecth = async () => {
 
         try {
             const result = await getListPersona()
-
-            dispatch({ type: 'GET_MOSTRAR_PERSONAS', listado: result.data })
+            console.log(result)
+            dispatch({ type: 'GET_MOSTRAR_PERSONAS', listado: result })
+            console.log(result)
 
         }
         catch (e) {
@@ -26,10 +29,8 @@ export default function Viewallpersons() {
     console.log("lo que viene del state ", personaView)
 
 
-    return (
-        <h3>Resultado</h3>
-    )
-    // return (statePersonas.map(item => <Card key={ item.id } { ...item } />))
+
+    return (personaView.map(item => <Card key={ item.id } { ...item } />))
 
 
 }
