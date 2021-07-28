@@ -23,7 +23,7 @@ export const getListPersona = async () => {
 export const getListPersonaId = async (id = 0) => {
     try {
 
-        const url = 'http://localhost:5000/persona/' + id
+        const url = `http://localhost:5000/persona/${ id }`
         const resultPersonaId = await axios.get(url)
         if (resultPersonaId.status === 200) {
             console.log('conexion establecida')

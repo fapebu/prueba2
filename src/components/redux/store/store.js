@@ -6,13 +6,21 @@ const stateInit = {
 }
 
 function reducer(state = stateInit, action) {
+
     const nuevoStatePersona = JSON.parse(JSON.stringify(state))
+
     switch (action.type) {
-        case 'GET_PERSONAS':
+
+        case 'GET_MOSTRAR_PERSONAS':
             nuevoStatePersona.listadopersona = action.listado
             return nuevoStatePersona
-        case 'POST_PERSONA':
-            nuevoStatePersona.listadopersona.push(action.listadopersona)
+
+        case 'GET_UNICA_PERSONA':
+            nuevoStatePersona.listadopersona = nuevoStatePersona.listadopersona.filter((element) => element.id !== action.idMostrar)
+            return nuevoStatePersona
+
+        case 'BORRAR_PERSONA':
+            nuevoStatePersona.listadopersona = nuevoStatePersona.listadopersona.filter((elemento) => elemento.id !== action.idRemove)
             return nuevoStatePersona
         default:
             return state
